@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-script: 'Alex Brush', cursive;
+  }
+}
+
+.font-serif {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-sans {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+.font-script {
+  font-family: 'Alex Brush', cursive;
+}
+
+@keyframes gallery-slide-from-right {
+  from {
+    transform: translate3d(22%, 0, 0);
+    opacity: 0.35;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes gallery-slide-from-left {
+  from {
+    transform: translate3d(-22%, 0, 0);
+    opacity: 0.35;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+.gallery-slide-from-right {
+  animation: gallery-slide-from-right 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gallery-slide-from-left {
+  animation: gallery-slide-from-left 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.thumb-wheel {
+  position: relative;
+  height: 3.5rem;
+  overflow: hidden;
+  container-type: inline-size;
+  touch-action: none;
+  cursor: grab;
+  user-select: none;
+  --drag: 0px;
+}
+
+.thumb-wheel.is-dragging {
+  cursor: grabbing;
+}
+
+.thumb-item {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  transform: translateX(-50%) translateX(calc(var(--shift, 0px) + var(--drag, 0px)));
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.3s ease;
+}
+
+.thumb-wheel.is-dragging .thumb-item {
+  transition: opacity 0.2s ease;
+}
+
+@media (min-width: 640px) {
+  .thumb-wheel {
+    height: 4rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .thumb-wheel {
+    height: 5rem;
+  }
+}
+
+/* Crisp subtle scrollbar */
+::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FFFFFF;
+}
+::-webkit-scrollbar-thumb {
+  background: #E5E7EB;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9CA3AF;
+}

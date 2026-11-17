@@ -1,0 +1,6 @@
+{
+  "name": "Blush Wedding Photography & Cinema",
+  "description": "Editorial fine-art wedding photography and cinematic stories with curated couples galleries, interactive slideshow, and booking inquiry.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
